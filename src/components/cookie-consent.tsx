@@ -48,10 +48,10 @@ export function CookieConsent() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6 animate-in slide-in-from-bottom duration-500">
-      <div className="max-w-6xl mx-auto bg-background border rounded-lg shadow-lg p-4 md:p-6">
+      <div className="max-w-6xl mx-auto bg-background border rounded-lg shadow-lg p-4 md:p-6 relative">
         <button
-          onClick={handleReject}
-          className="absolute top-4 right-4 p-1 rounded-xs hover:bg-muted transition-colors"
+          onClick={() => setShow(false)}
+          className="absolute top-2 right-2 p-1 rounded-xs hover:bg-muted transition-colors"
           aria-label="Fechar"
         >
           <XIcon className="size-4" />
@@ -73,7 +73,7 @@ export function CookieConsent() {
             </p>
           </div>
 
-          <div className="flex gap-3 md:flex-shrink-0">
+          <div className="flex gap-3 md:shrink-0">
             <Button variant="outline" size="sm" onClick={handleReject}>
               Rejeitar
             </Button>
