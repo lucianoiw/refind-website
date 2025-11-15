@@ -27,7 +27,7 @@ export const MarkdownText = memo(
 
             // Headings
             h1: ({ children }) => (
-              <h1 className="text-lg font-bold my-2">{children}</h1>
+              <h1 className="text-3xl font-bold my-2">{children}</h1>
             ),
             h2: ({ children }) => (
               <h2 className="text-base font-bold my-1.5">{children}</h2>
@@ -58,7 +58,7 @@ export const MarkdownText = memo(
               </pre>
             ),
             code: (props) => {
-              const { children, className, ...rest } = props;
+              const { children, className } = props;
               const isInline = !className?.includes("language-");
               return isInline ? (
                 <code className="bg-neutral-200 dark:bg-neutral-800 px-1 py-0.5 rounded text-xs font-mono">
@@ -89,6 +89,20 @@ export const MarkdownText = memo(
 
             hr: () => (
               <hr className="my-3 border-neutral-300 dark:border-neutral-700" />
+            ),
+
+            table: ({ children }) => (
+              <table className="border">{children}</table>
+            ),
+
+            th: ({ children }) => (
+              <th className="border px-2 py-0.5 bg-neutral-200 dark:bg-neutral-800 font-medium">
+                {children}
+              </th>
+            ),
+
+            td: ({ children }) => (
+              <td className="border px-2 py-0.5">{children}</td>
             ),
           }}
         >

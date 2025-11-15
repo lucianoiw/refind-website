@@ -1,5 +1,6 @@
 import { Companies } from "@/components/companies";
 import { ContentTypes } from "@/components/content-types";
+import { Cta } from "@/components/cta";
 import { Faq } from "@/components/faq";
 import { Features } from "@/components/features";
 import { Footer } from "@/components/footer";
@@ -27,9 +28,13 @@ const Page = () => {
       </div>
       <Separator className="bg-foreground/4" />
       <UseCase1 />
+
       <Separator className="bg-foreground/4" />
+
       <Features />
-      <Separator className="bg-foreground/4" />
+
+      <Cta />
+
       <ContentTypes />
       <Separator className="bg-foreground/4" />
       <UseCase2 />
