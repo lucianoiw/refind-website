@@ -15,11 +15,6 @@ import {
 
 const COOKIE_CONSENT_KEY = "cookie-consent";
 
-// Interface para tipagem do gtag consent
-interface GtagConsentParams {
-  analytics_storage: "granted" | "denied";
-}
-
 export function CookiePreferences() {
   const [open, setOpen] = useState(false);
 
@@ -37,10 +32,9 @@ export function CookiePreferences() {
 
     // Ativar GA4
     if (typeof window !== "undefined" && window.gtag) {
-      const params: GtagConsentParams = {
+      window.gtag("consent", "update", {
         analytics_storage: "granted",
-      };
-      window.gtag("consent", "update", params);
+      });
     }
 
     // Recarregar página para aplicar mudanças

@@ -59,8 +59,8 @@ export const trackScroll = (section: string) => {
 declare global {
   interface Window {
     gtag: (
-      command: string,
-      targetId: string,
+      command: "config" | "event" | "consent" | "get" | "set",
+      targetIdOrAction: string,
       config?: Record<string, unknown>
     ) => void;
   }

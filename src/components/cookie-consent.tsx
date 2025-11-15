@@ -6,11 +6,6 @@ import { XIcon } from "lucide-react";
 
 const COOKIE_CONSENT_KEY = "cookie-consent";
 
-// Interface para tipagem do gtag consent
-interface GtagConsentParams extends Record<string, unknown> {
-  analytics_storage: "granted" | "denied";
-}
-
 export function CookieConsent() {
   const [show, setShow] = useState(false);
 
@@ -19,10 +14,9 @@ export function CookieConsent() {
     // O GA4 será carregado automaticamente se o consentimento for dado
     // Isso é feito através do gtag no layout
     if (typeof window !== "undefined" && window.gtag) {
-      const params: GtagConsentParams = {
+      window.gtag("consent", "update", {
         analytics_storage: "granted",
-      };
-      window.gtag("consent", "update", params);
+      });
     }
   };
 
