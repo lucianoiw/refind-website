@@ -7,7 +7,7 @@ import { XIcon } from "lucide-react";
 const COOKIE_CONSENT_KEY = "cookie-consent";
 
 // Interface para tipagem do gtag consent
-interface GtagConsentParams {
+interface GtagConsentParams extends Record<string, unknown> {
   analytics_storage: "granted" | "denied";
 }
 
