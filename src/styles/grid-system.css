@@ -1,0 +1,376 @@
+/* ========================================
+   SISTEMA DE GRID - TAILWIND CSS v4
+   ======================================== */
+
+/* Adicione este arquivo ao seu projeto e importe no globals.css ou app.css */
+
+@import "tailwindcss";
+
+/* ========================================
+   THEME - Variáveis Customizadas
+   ======================================== */
+
+@theme {
+  /* Max Width do Grid */
+  --width-grid: 1440px;
+  --width-grid-inner: var(--grid-inner);
+
+  /* Spacing baseado em colunas do grid */
+  --spacing-grid-col: var(--grid-col);
+  --spacing-grid-2-col: calc(var(--grid-col) * 2);
+  --spacing-grid-3-col: calc(var(--grid-col) * 3);
+  --spacing-grid-4-col: calc(var(--grid-col) * 4);
+  --spacing-grid-5-col: calc(var(--grid-col) * 5);
+  --spacing-grid-6-col: calc(var(--grid-col) * 6);
+  --spacing-grid-8-col: calc(var(--grid-col) * 8);
+  --spacing-grid-10-col: calc(var(--grid-col) * 10);
+  --spacing-grid-12-col: calc(var(--grid-col) * 12);
+  --spacing-grid-18-col: calc(var(--grid-col) * 18);
+
+  /* Gap customizado */
+  --spacing-grid-half: calc(var(--grid-col) / 2);
+}
+
+/* ========================================
+   GRID WRAPPER - Componente Principal
+   ======================================== */
+
+@utility grid-wrapper {
+  display: grid;
+  --grid-col: calc(100vw / 26);
+  --grid-inner: calc(var(--grid-col) * 24);
+
+  grid-template-columns:
+    [start-edge] var(--grid-col)
+    [start-inner] repeat(8, var(--grid-col))
+    [start-third] repeat(4, var(--grid-col))
+    [center] repeat(2, var(--grid-col))
+    [off-center] repeat(4, var(--grid-col))
+    [aside] repeat(6, var(--grid-col))
+    [end-inner] var(--grid-col)
+    [end-edge];
+
+  grid-auto-rows: minmax(2rem, auto);
+  grid-auto-flow: row;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: var(--width-grid);
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Tablet e acima (768px+) */
+  @media (width >= 768px) {
+    --grid-col: calc(100vw / 36);
+    --grid-inner: calc(100vw - ((100vw / 36) * 2));
+
+    grid-template-columns:
+      [start-edge] 1fr
+      [start-inner] repeat(10, var(--grid-col))
+      [start-third] repeat(7, var(--grid-col))
+      [center] repeat(2, var(--grid-col))
+      [off-center] repeat(9, var(--grid-col))
+      [aside] repeat(6, var(--grid-col))
+      [end-inner] 1fr
+      [end-edge];
+  }
+
+  /* Desktop grande (1440px+) */
+  @media (width >= 1440px) {
+    --grid-col: 2.5rem;
+    --grid-inner: calc(1440px - 5rem);
+  }
+}
+
+/* Subgrid para elementos filhos */
+@utility subgrid-item {
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+/* ========================================
+   GRID UTILITIES - Column Start
+   ======================================== */
+
+@utility grid-start-edge {
+  grid-column-start: start-edge;
+}
+
+@utility grid-start-inner {
+  grid-column-start: start-inner;
+}
+
+@utility grid-start-third {
+  grid-column-start: start-third;
+}
+
+@utility grid-start-center {
+  grid-column-start: center;
+}
+
+@utility grid-start-off-center {
+  grid-column-start: off-center;
+}
+
+@utility grid-start-aside {
+  grid-column-start: aside;
+}
+
+/* ========================================
+   GRID UTILITIES - Column End
+   ======================================== */
+
+@utility grid-end-edge {
+  grid-column-end: end-edge;
+}
+
+@utility grid-end-inner {
+  grid-column-end: end-inner;
+}
+
+@utility grid-end-center {
+  grid-column-end: center;
+}
+
+@utility grid-end-third {
+  grid-column-end: start-third;
+}
+
+@utility grid-end-aside {
+  grid-column-end: aside;
+}
+
+/* ========================================
+   GRID SPANS - Atalhos Úteis
+   ======================================== */
+
+@utility grid-span-full {
+  grid-column-start: start-edge;
+  grid-column-end: end-edge;
+}
+
+@utility grid-span-inner {
+  grid-column-start: start-inner;
+  grid-column-end: end-inner;
+}
+
+@utility grid-span-content {
+  grid-column-start: start-inner;
+  grid-column-end: center;
+}
+
+@utility grid-span-main {
+  grid-column-start: start-inner;
+  grid-column-end: off-center;
+}
+
+@utility grid-span-aside-area {
+  grid-column-start: aside;
+  grid-column-end: end-inner;
+}
+
+/* Metade direita (do centro até o fim) */
+@utility grid-span-right {
+  grid-column-start: center;
+  grid-column-end: end-inner;
+}
+
+/* Metade esquerda (alias mais claro) */
+@utility grid-span-left {
+  grid-column-start: start-inner;
+  grid-column-end: center;
+}
+
+/* ========================================
+   VARIANTES RESPONSIVAS
+   ======================================== */
+
+/* As classes acima automaticamente suportam variantes como:
+   - md:grid-start-center
+   - lg:grid-span-inner
+   - xl:grid-end-aside
+   etc.
+*/
+
+/* ========================================
+   UTILITIES EXTRAS - Spacing com Grid
+   ======================================== */
+
+/* Margens baseadas no grid */
+@utility mx-grid-outer {
+  margin-left: var(--grid-col);
+  margin-right: var(--grid-col);
+}
+
+@utility ml-grid-outer {
+  margin-left: var(--grid-col);
+}
+
+@utility mr-grid-outer {
+  margin-right: var(--grid-col);
+}
+
+/* Padding baseado no grid */
+@utility p-grid-col {
+  padding: var(--grid-col);
+}
+
+@utility px-grid-col {
+  padding-left: var(--grid-col);
+  padding-right: var(--grid-col);
+}
+
+@utility py-grid-col {
+  padding-top: var(--grid-col);
+  padding-bottom: var(--grid-col);
+}
+
+@utility pt-grid-col {
+  padding-top: var(--grid-col);
+}
+
+@utility pb-grid-col {
+  padding-bottom: var(--grid-col);
+}
+
+@utility pl-grid-col {
+  padding-left: var(--grid-col);
+}
+
+@utility pr-grid-col {
+  padding-right: var(--grid-col);
+}
+
+/* Gap baseado no grid */
+@utility gap-grid-col {
+  gap: var(--grid-col);
+}
+
+@utility gap-x-grid-col {
+  column-gap: var(--grid-col);
+}
+
+@utility gap-y-grid-col {
+  row-gap: var(--grid-col);
+}
+
+@utility gap-grid-half {
+  gap: calc(var(--grid-col) / 2);
+}
+
+/* ========================================
+   WIDTH & HEIGHT UTILITIES
+   ======================================== */
+
+@utility w-grid-inner {
+  width: var(--grid-inner);
+}
+
+@utility w-grid-6-col {
+  width: calc(var(--grid-col) * 6);
+}
+
+@utility w-grid-10-col {
+  width: calc(var(--grid-col) * 10);
+}
+
+@utility w-grid-12-col {
+  width: calc(var(--grid-col) * 12);
+}
+
+@utility w-grid-18-col {
+  width: calc(var(--grid-col) * 18);
+}
+
+@utility h-grid-2-col {
+  height: calc(var(--grid-col) * 2);
+}
+
+@utility h-grid-5-col {
+  height: calc(var(--grid-col) * 5);
+}
+
+@utility min-h-grid-2-col {
+  min-height: calc(var(--grid-col) * 2);
+}
+
+@utility min-h-grid-6-col {
+  min-height: calc(var(--grid-col) * 6);
+}
+
+@utility min-w-grid-6-col {
+  min-width: calc(var(--grid-col) * 6);
+}
+
+@utility max-w-grid-inner {
+  max-width: var(--grid-inner);
+}
+
+/* ========================================
+   DEBUG - Visualização das Zonas
+   ======================================== */
+
+/* Adicione a classe .grid-debug ao grid-wrapper para visualizar */
+.grid-debug {
+  & > * {
+    outline: 1px solid rgba(255, 0, 0, 0.1);
+    background-color: rgba(255, 0, 0, 0.02);
+  }
+
+  &::before {
+    content: "";
+    grid-column: start-edge / end-edge;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(59, 130, 246, 0.1) 0%,
+      rgba(59, 130, 246, 0.1) calc((100% / 26) * 1),
+      transparent calc((100% / 26) * 1)
+    );
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+}
+
+/* ========================================
+   NOTAS DE USO
+   ======================================== */
+
+/*
+COMO USAR:
+
+1. Importe este arquivo no seu app.css ou globals.css:
+   @import "./grid-system.css";
+
+2. Use as classes nos seus componentes:
+   <div className="grid-wrapper">
+     <section className="grid-span-full bg-blue-600 py-20">
+       Hero Full Width
+     </section>
+     
+     <main className="grid-span-inner py-12">
+       Conteúdo Centralizado
+     </main>
+   </div>
+
+3. Use variantes responsivas normalmente:
+   <div className="grid-span-full md:grid-span-inner lg:grid-start-center">
+     Responsivo!
+   </div>
+
+4. Para debug, adicione grid-debug:
+   <div className="grid-wrapper grid-debug">
+     ...
+   </div>
+
+BREAKPOINTS:
+- Mobile:  < 768px  → 26 colunas → calc(100vw / 26)
+- Tablet:  ≥ 768px  → 36 colunas → calc(100vw / 36)
+- Desktop: ≥ 1440px → 36 colunas → 2.5rem (40px)
+
+MAX WIDTH: 1440px em todas as telas
+*/

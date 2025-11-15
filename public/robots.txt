@@ -1,0 +1,11 @@
+# robots.txt for Refind
+# https://refind.com.br
+
+User-agent: *
+Allow: /
+
+# Disallow admin routes (if any in the future)
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://refind.com.br/sitemap.xml
