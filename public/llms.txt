@@ -1,1 +1,39 @@
-# Refind
+# llms.txt for https://www.refind.com.br
+# Last updated: 2025-11-15
+# Owner: 89DEV INFORMATICA EIRELI - ME (CNPJ 26.220.882/0001-94)
+# Contact: contato@89dev.com.br
+
+# General policy:
+# - Access to public pages is allowed for indexing and retrieval.
+# - Use of content for training or fine-tuning AI models is NOT allowed.
+# - Any access must respect our robots.txt and not overload the server.
+
+[policy]
+site: https://www.refind.com.br
+owner: 89DEV INFORMATICA EIRELI - ME
+contact: contato@89dev.com.br
+access: allow
+use_for_training: disallow
+rate_limit: respectful
+
+# Paths explicitly allowed (public marketing pages)
+allow: /
+allow: /precos
+allow: /faq
+allow: /blog/
+allow: /termos
+allow: /privacidade
+
+# Paths explicitly disallowed (user data, app, auth, dashboards, etc.)
+disallow: /app
+disallow: /login
+disallow: /signup
+disallow: /dashboard
+disallow: /conta
+disallow: /api
+disallow: /admin
+
+# Notes:
+# - "access: allow" = LLMs may crawl and index public marketing content.
+# - "use_for_training: disallow" = content must not be used to train or fine-tune LLMs.
+# - For any questions or special agreements, contact us by email.
