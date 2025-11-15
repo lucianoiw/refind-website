@@ -47,10 +47,9 @@ export function CookiePreferences() {
 
     // Desativar GA4
     if (typeof window !== "undefined" && window.gtag) {
-      const params: GtagConsentParams = {
+      window.gtag("consent", "update", {
         analytics_storage: "denied",
-      };
-      window.gtag("consent", "update", params);
+      });
     }
 
     // Recarregar página para aplicar mudanças
