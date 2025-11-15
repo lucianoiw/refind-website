@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   authors: [{ name: "89DEV INFORMATICA EIRELI - ME" }],
   creator: "Refind",
   publisher: "Refind",
-  metadataBase: new URL("https://refind.com.br"),
+  metadataBase: new URL("https://www.refind.com.br"),
   alternates: {
     canonical: "/",
   },
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
     title: "Refind - Transforme Conteúdos em Resultados com IA",
     description:
       "Acesse GPT, Claude, Gemini e Grok. Processe vídeos, imagens e posts das redes sociais e gere ideias, scripts e análises incríveis em poucos segundos.",
-    url: "https://refind.com.br",
+    url: "https://www.refind.com.br",
     siteName: "Refind",
     locale: "pt_BR",
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-refind.jpeg",
         width: 1200,
         height: 630,
         alt: "Refind - Transforme Conteúdos em Resultados",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     description:
       "Acesse GPT, Claude, Gemini e Grok. Processe vídeos, imagens e posts das redes sociais e gere ideias, scripts e análises incríveis.",
     creator: "@getrefind",
-    images: ["/twitter-image.png"],
+    images: ["/og-refind.jpeg"],
   },
   robots: {
     index: true,

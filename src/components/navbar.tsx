@@ -2,13 +2,12 @@
 
 import Link from "next/link";
 
+import { trackScroll } from "@/lib/gtag";
+
 import { Logo } from "./logo";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
-// import { APP_URL } from "@/utils";
 import { FakeDoor } from "./fake-door";
-import { trackScroll } from "@/lib/gtag";
-import { APP_URL } from "@/utils";
 
 export const Navbar = () => {
   return (
