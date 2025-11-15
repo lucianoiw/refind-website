@@ -8,41 +8,48 @@ import { Button } from "./ui/button";
 // import { APP_URL } from "@/utils";
 import { FakeDoor } from "./fake-door";
 import { trackScroll } from "@/lib/gtag";
+import { APP_URL } from "@/utils";
 
 export const Navbar = () => {
   return (
-    <header className="grid-wrapper">
-      <div className="flex justify-between py-5 grid-span-inner">
-        <Link href="/">
-          <Logo />
-        </Link>
+    <>
+      <header className="grid-wrapper">
+        <div className="grid-span-inner flex py-5 flex-col md:flex-row items-center gap-y-6 md:gap-y-0 justify-between">
+          <Link href="/">
+            <Logo />
+          </Link>
 
-        <div className="flex items-center gap-2">
-          <Button
-            variant="ghost"
-            onClick={() => {
-              trackScroll("pricing");
-              document.getElementById("pricing")?.scrollIntoView({
-                behavior: "smooth",
-              });
-            }}
-          >
-            Preços
-          </Button>
+          <div className="flex gap-6">
+            <nav className="flex items-center text-base justify-center gap-4">
+              <Button
+                variant="link"
+                onClick={() => {
+                  trackScroll("pricing");
+                  document.getElementById("pricing")?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
+              >
+                Preços
+              </Button>
 
-          {/* <Button asChild variant="ghost" className="hidden md:flex">
-            <Link href={`${APP_URL}/login`} target="_blank">
-              Entrar
-            </Link>
-          </Button> */}
+              {/* <Button asChild variant="link">
+                <Link href={`${APP_URL}/login`} target="_blank">
+                  Entrar
+                </Link>
+              </Button> */}
+            </nav>
 
-          <FakeDoor source="navbar">
-            <Button>Use grátis por 7 dias</Button>
-          </FakeDoor>
+            <div className="flex gap-3 md:gap-2">
+              <FakeDoor source="navbar">
+                <Button>Use grátis por 7 dias</Button>
+              </FakeDoor>
 
-          <ThemeToggle />
+              <ThemeToggle />
+            </div>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 };

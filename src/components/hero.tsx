@@ -23,9 +23,9 @@ export const Hero = () => {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3">
+        <div className="flex flex-col sm:flex-row gap-5">
           <FakeDoor source="hero">
-            <Button size="xl" className="font-light">
+            <Button size="xl" className="font-light w-full md:w-auto">
               Use grátis por 7 dias
             </Button>
           </FakeDoor>

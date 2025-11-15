@@ -2,8 +2,6 @@
 
 import {
   addEdge,
-  Background,
-  BackgroundVariant,
   ColorMode,
   OnConnect,
   ReactFlow,
@@ -63,7 +61,7 @@ const BoardContent = () => {
       const centerY = height * 0.5;
 
       if (isMobile) {
-        const nodeSpacing = 150;
+        // const nodeSpacing = 150;
 
         setNodes((nds) =>
           nds.map((node) => {
@@ -71,27 +69,99 @@ const BoardContent = () => {
               case "youtube":
                 return {
                   ...node,
-                  position: { x: centerX - 150, y: centerY + nodeSpacing * 1 },
+                  position: {
+                    x: centerX - 290,
+                    y: centerY - 545,
+                  },
                 };
+
               case "instagram":
                 return {
                   ...node,
                   position: {
-                    x: centerX - 170,
-                    y: centerY + nodeSpacing * 2.2,
+                    x: centerX - 50,
+                    y: centerY - 560,
                   },
                 };
+
+              case "facebook":
+                return {
+                  ...node,
+                  position: {
+                    x: centerX - 290,
+                    y: centerY + 335,
+                  },
+                };
+
+              case "tiktok":
+                return {
+                  ...node,
+                  position: {
+                    x: centerX - 290,
+                    y: centerY - 330,
+                  },
+                };
+
+              case "linkedin":
+                return {
+                  ...node,
+                  position: {
+                    x: centerX - 290,
+                    y: centerY - 27,
+                  },
+                };
+
+              case "twitter":
+                return {
+                  ...node,
+                  position: {
+                    x: centerX - 290,
+                    y: centerY + 182,
+                  },
+                };
+
+              case "document":
+                return {
+                  ...node,
+                  position: {
+                    x: centerX - 50,
+                    y: centerY - 330,
+                  },
+                };
+
+              case "website":
+                return {
+                  ...node,
+                  position: {
+                    x: centerX - 50,
+                    y: centerY - 197,
+                  },
+                };
+
               case "audio":
                 return {
                   ...node,
-                  position: { x: centerX - 160, y: centerY + nodeSpacing * 4 },
+                  position: {
+                    x: centerX - 50,
+                    y: centerY + 13,
+                  },
                 };
+
+              case "text":
+                return {
+                  ...node,
+                  position: {
+                    x: centerX - 50,
+                    y: centerY + 153,
+                  },
+                };
+
               case "chat":
                 return {
                   ...node,
                   position: {
-                    x: centerX + 120,
-                    y: centerY + nodeSpacing * 1.5,
+                    x: centerX + 230,
+                    y: centerY - node.height! / 2,
                   },
                 };
               default:
@@ -250,20 +320,20 @@ const BoardContent = () => {
         edgeTypes={edgeTypes}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
-        onNodeDragStop={(_, node) => {
-          const center = containerRef.current?.getBoundingClientRect();
+        // onNodeDragStop={(_, node) => {
+        //   // const center = containerRef.current?.getBoundingClientRect();
 
-          const centerX = (center?.width || 0) * 0.5;
-          const centerY = (center?.height || 0) * 0.5;
+        //   // const centerX = (center?.width || 0) * 0.5;
+        //   // const centerY = (center?.height || 0) * 0.5;
 
-          // Debug: node positioning
-          // console.log(node.id, node.position.x - centerX, node.position.y - centerY,
-            // centerX,
-            // centerY,
-            // node.width,
-            // node.height
-          // );
-        }}
+        //   // Debug: node positioning
+        //   // console.log(node.id, node.position.x - centerX, node.position.y - centerY,
+        //   // centerX,
+        //   // centerY,
+        //   // node.width,
+        //   // node.height
+        //   // );
+        // }}
         proOptions={{ hideAttribution: true }}
         panOnScroll={false}
         zoomOnScroll={false}
@@ -275,6 +345,7 @@ const BoardContent = () => {
           transition: "opacity 0.3s",
         }}
         colorMode={colorMode}
+        fitView
       >
         {/* <Background
           variant={BackgroundVariant.Cross}
