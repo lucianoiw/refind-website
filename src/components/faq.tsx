@@ -1,3 +1,4 @@
+import { MailIcon } from "lucide-react";
 import { MarkdownText } from "./markdown-text";
 import {
   Accordion,
@@ -148,12 +149,34 @@ A capacidade de **gerar imagens e vídeos** está no nosso **roadmap** e chegar�
   return (
     <section className="grid-wrapper py-10 lg:py-24">
       <div className="grid-span-inner flex flex-col gap-10 lg:flex-row lg:gap-14 xl:gap-20">
-        <div className="flex flex-col w-full lg:max-w-sm xl:max-w-md gap-4">
-          <Badge>Perguntas frequentes</Badge>
+        <div className="flex flex-col w-full lg:max-w-sm xl:max-w-md gap-8">
+          <div className="flex flex-col gap-4">
+            <Badge>Perguntas frequentes</Badge>
 
-          <h2 className="text-3xl font-medium">
-            Tudo o que você precisa saber sobre o Refind
-          </h2>
+            <h2 className="text-3xl font-medium">
+              Tudo o que você precisa saber sobre o Refind
+            </h2>
+          </div>
+
+          <div className="flex flex-col gap-4 border p-4">
+            <div className="flex flex-col">
+              <div className="text-xl font-bold">Fale com a gente</div>
+
+              <a
+                href="mainto:contato@refind.com.br"
+                className="text-muted-foreground underline underline-offset-4"
+              >
+                contato@refind.com.br
+              </a>
+            </div>
+
+            <div className="flex flex-col gap-1 text-sm">
+              <p>
+                Se tiver dúvidas, feedback ou quiser falar sobre o Refind,
+                estamos aqui para ajudar.
+              </p>
+            </div>
+          </div>
         </div>
 
         <Accordion type="single" collapsible className="w-full grow">
