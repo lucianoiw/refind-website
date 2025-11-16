@@ -311,7 +311,6 @@ const BoardContent = () => {
     <div
       ref={containerRef}
       className="relative w-screen h-screen min-h-[750px] max-h-[840px]"
-      aria-hidden="true"
     >
       <ReactFlow<IAllNodeType, IAllEdgeType>
         nodes={nodes}
@@ -321,6 +320,9 @@ const BoardContent = () => {
         edgeTypes={edgeTypes}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
+        ariaLabelConfig={{
+          "edge.a11yDescription.default": "",
+        }}
         // onNodeDragStop={(_, node) => {
         //   // const center = containerRef.current?.getBoundingClientRect();
 
