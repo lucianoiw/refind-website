@@ -10,7 +10,7 @@ export const Cta = () => {
       }}
     >
       <div className="grid-wrapper">
-        <div className="grid-span-inner py-24">
+        <div className="grid-span-inner py-10 lg:py-24">
           <div className="lg:w-2/3 flex flex-col gap-4 sm:flex-row sm:items-center items-start mx-auto">
             <div className="flex flex-col gap-1">
               <div className="text-xl font-bold text-balance">
