@@ -311,6 +311,7 @@ const BoardContent = () => {
     <div
       ref={containerRef}
       className="relative w-screen h-screen min-h-[750px] max-h-[840px]"
+      aria-hidden="true"
     >
       <ReactFlow<IAllNodeType, IAllEdgeType>
         nodes={nodes}
