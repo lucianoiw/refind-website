@@ -88,7 +88,7 @@ export const Footer = () => {
                   </a>
 
                   <a
-                    href="https://instagram.com/refind.ai"
+                    href="https://instagram.com/getrefind"
                     className="block text-slate-400 hover:text-slate-500"
                     target="_blank"
                   >
